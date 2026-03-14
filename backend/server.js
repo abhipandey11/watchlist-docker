@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -7,10 +8,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb://mongo:27017/watchlist", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+const mongoUrl = process.env.MONGO_URL;
+
+mongoose.connect(mongoUrl)
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.error(err));
+
 
 const ItemSchema = new mongoose.Schema({
   title: String,
@@ -18,6 +21,13 @@ const ItemSchema = new mongoose.Schema({
 });
 
 const Item = mongoose.model("Item", ItemSchema);
+
+app.use(express.static(path.join(__dirname,"../frontend")));
+
+app.get("/",(req,res)=>{
+res.sendFile(path.join(__dirname,"../frontend/index.html"));
+});
+
 
 // get all items
 app.get("/items", async (req, res) => {
