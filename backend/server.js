@@ -25,6 +25,18 @@ app.get("/items", async (req, res) => {
   res.json(items);
 });
 
+app.delete("/items/:id", async (req,res)=>{
+await Item.findByIdAndDelete(req.params.id);
+res.sendStatus(200);
+});
+
+app.put("/items/:id", async (req,res)=>{
+await Item.findByIdAndUpdate(req.params.id,req.body);
+res.sendStatus(200);
+});
+
+
+
 // add item
 app.post("/items", async (req, res) => {
   const item = new Item(req.body);
