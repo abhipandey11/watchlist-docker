@@ -47,6 +47,7 @@ The project demonstrates **containerized microservices using Docker**, with a **
 
 ## Project Structure
 
+```text
 watchlist-docker
 │
 ├── backend
@@ -61,6 +62,8 @@ watchlist-docker
 │
 ├── docker-compose.yml
 └── README.md
+```
+
 
 ---
 
