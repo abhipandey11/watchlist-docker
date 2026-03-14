@@ -4,6 +4,10 @@ A simple **full-stack watchlist application** where users can keep track of **Mo
 
 The project demonstrates **containerized microservices using Docker**, with a **Node.js backend, MongoDB database, and a frontend served through Nginx**.
 
+[Check out the live Demo](https://your-render-url.onrender.com)
+
+
+
 ---
 
 ## Features
@@ -52,15 +56,13 @@ watchlist-docker
 │
 ├── backend
 │   ├── server.js
-│   ├── package.json
-│   └── Dockerfile
+│   └── package.json
 │
 ├── frontend
 │   ├── index.html
-│   ├── script.js
-│   └── Dockerfile
+│   └── script.js
 │
-├── docker-compose.yml
+├── Dockerfile
 └── README.md
 ```
 
