@@ -1,4 +1,4 @@
-const API = "http://localhost:5000/items";
+const API = "/items";
 
 async function loadItems(){
 
