@@ -86,8 +86,14 @@ loadItems();
 }
 
 function logout(){
+
+const confirmLogout = confirm("Are you sure you want to logout?");
+
+if(confirmLogout){
 localStorage.removeItem("token");
 window.location="/login.html";
+}
+
 }
 
 loadItems();
